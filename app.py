@@ -88,10 +88,11 @@ def load_model_and_tokenizer():
     # Load model
     model = tf.keras.models.load_model(MODEL_PATH)
     
-    # Load tokenizer
+    # Load tokenizer with oov_token
     with open(TOKENIZER_PATH, 'r', encoding='utf-8') as f:
         tokenizer_json = json.load(f)
     tokenizer = tokenizer_from_json(tokenizer_json)
+    tokenizer.oov_token = "<OOV>"  # ADD THIS LINE
     
     return model, tokenizer
 
