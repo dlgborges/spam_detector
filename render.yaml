@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: spam-detector-app
+    env: streamlit
+    buildCommand: pip install -r requirements.txt
+    startCommand: sh setup.sh && streamlit run app.py --server.port=$PORT --server.address=0.0.0.0
